@@ -2,11 +2,7 @@
 @defer {
     <mat-list>
         @for (rate of rates$ | async; track $index) {
-        <a mat-list-item [routerLink]="rate.unit | lowercase">
-            <p>{{ rate.name }}</p>
-            <p>{{ rate.unit }}</p>
-            <mat-divider></mat-divider>
-        </a>
+            <app-rate-list-item [rate]="rate" />
         }
     </mat-list>
 }

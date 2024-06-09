@@ -6,12 +6,13 @@ import { MatList, MatListItem } from '@angular/material/list';
 import { AsyncPipe, LowerCasePipe, NgFor } from '@angular/common';
 import { MatDivider } from '@angular/material/divider';
 import { RouterModule } from '@angular/router';
+import { RateListItemComponent } from '../rate-list-item/rate-list-item.component';
 
 @Component({
   selector: 'app-rates-list',
   templateUrl: './rates-list.component.html',
   standalone: true,
-  imports: [MatList, MatListItem, NgFor, AsyncPipe, MatDivider, RouterModule, LowerCasePipe]
+  imports: [MatList, NgFor, AsyncPipe, MatDivider, RateListItemComponent]
 })
 export class RatesListComponent {
   public rates$: Observable<Rate[] | undefined>;
