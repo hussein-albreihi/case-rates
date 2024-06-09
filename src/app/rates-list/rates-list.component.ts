@@ -5,12 +5,13 @@ import { RatesQuery } from '../../stores/rates.query';
 import { MatList, MatListItem } from '@angular/material/list';
 import { AsyncPipe, NgFor } from '@angular/common';
 import { MatDivider } from '@angular/material/divider';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-rates-list',
   templateUrl: './rates-list.component.html',
   standalone: true,
-  imports: [MatList, MatListItem, NgFor, AsyncPipe, MatDivider]
+  imports: [MatList, MatListItem, NgFor, AsyncPipe, MatDivider, RouterLink]
 })
 export class RatesListComponent {
   rates$: Observable<Rate[]>;

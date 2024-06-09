@@ -1,7 +1,10 @@
 <mat-list>
-    <mat-list-item *ngFor="let rate of rates$ | async">
-        <p>{{ rate.name }}</p>
-        <p>{{ rate.unit }}</p>
-        <mat-divider></mat-divider>
-    </mat-list-item>
+    @for (rate of rates$ | async; track $index) {
+        <a mat-list-item>
+            <p>{{ rate.name }}</p>
+            <p>{{ rate.unit }}</p>
+            <a [routerLink]="['/rate', rate.id]">Go to details</a>
+            <mat-divider></mat-divider>
+        </a>
+    }
 </mat-list>
