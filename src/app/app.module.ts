@@ -1,19 +1,14 @@
-<<<<<<< HEAD
-import { NgModule, provideZoneChangeDetection } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { RouterModule, RouterOutlet, Routes, provideRouter } from '@angular/router';
+import { RouterOutlet, Routes, provideRouter } from '@angular/router';
 import { RateComponent } from './rate/rate.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RatesListComponent } from './rates-list/rates-list.component';
 import { RatesService } from '../services/rates.service';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ENVIRONMENT_INITIALIZER, inject, NgZone } from '@angular/core';
 import { akitaDevtools, DevtoolsOptions } from '@datorama/akita';
-=======
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common';
->>>>>>> 18376ae (changes O_o)
 
 export function provideAkitaDevtools(options: Partial<DevtoolsOptions> = {}) {
   return {
@@ -28,8 +23,8 @@ export function provideAkitaDevtools(options: Partial<DevtoolsOptions> = {}) {
 }
 
 const routes: Routes = [
-  { path: 'home', component: AppComponent },
-  { path: 'rate/:id', component: RateComponent },
+  { path: '', component: AppComponent },
+  { path: 'rate/:id', component: RateComponent, pathMatch: 'prefix' },
 ]
 
 @NgModule({
@@ -37,6 +32,7 @@ const routes: Routes = [
     BrowserModule,
     RouterOutlet,
     RatesListComponent,
+    CommonModule
   ],
   exports: [RatesListComponent],
   declarations: [AppComponent],
@@ -45,7 +41,7 @@ const routes: Routes = [
   ],
   providers: [
     RatesService,
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideAkitaDevtools(),
     provideRouter(routes)
   ]

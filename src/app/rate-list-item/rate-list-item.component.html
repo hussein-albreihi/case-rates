@@ -1,5 +1,6 @@
 <a mat-list-item [routerLink]="rateItem.unit | lowercase">
   <p>{{ rateItem.name }}</p>
   <p>{{ rateItem.unit }}</p>
+  <a [routerLink]="['/rate', rateItem.id]">Click here for details</a>
   <mat-divider></mat-divider>
 </a>
