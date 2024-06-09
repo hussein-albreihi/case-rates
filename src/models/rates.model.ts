@@ -8,3 +8,7 @@ export interface Rate {
 export interface Rates {
   [key: string]: Rate;
 }
+
+export interface RatesResponse {
+  rates: Rates;
+}
