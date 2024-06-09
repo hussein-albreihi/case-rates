@@ -8,8 +8,6 @@ import { RatesService } from '../services/rates.service';
   standalone: false
 })
 export class AppComponent {
-  title = 'case-rates';
-
   constructor(private ratesService: RatesService) {
     this.ratesService.fetchRates();
   }

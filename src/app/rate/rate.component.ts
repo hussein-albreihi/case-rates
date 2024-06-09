@@ -1,21 +1,21 @@
-import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Rate } from '../../models/rates.model';
+import { Component, Input, OnInit, Signal, WritableSignal, inject, signal } from '@angular/core';
 import { RatesQuery } from '../../stores/rates.query';
-import { AsyncPipe } from '@angular/common';
+import { JsonPipe } from '@angular/common';
+import { Rate } from '../../models/rates.model';
 
 @Component({
   selector: 'app-rate',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [JsonPipe],
   templateUrl: './rate.component.html',
   styleUrl: './rate.component.css'
 })
-export class RateComponent {
+export class RateComponent implements OnInit {
   @Input() id!: string;
-  rate$: Observable<Rate | undefined>;
+  private store = inject(RatesQuery);
+  public coin: WritableSignal<Rate | undefined> = signal(undefined);
 
-  constructor(private ratesQuery: RatesQuery) {
-    this.rate$ = this.ratesQuery.selectEntity<Rate>(this.id)
+  ngOnInit(): void {
+    this.coin.update(() => this.store.getEntity(this.id));
   }
 }

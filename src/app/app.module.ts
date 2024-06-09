@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NgModule, provideZoneChangeDetection } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule, RouterOutlet, Routes, provideRouter } from '@angular/router';
@@ -8,6 +9,11 @@ import { RatesService } from '../services/rates.service';
 import { provideHttpClient } from '@angular/common/http';
 import { ENVIRONMENT_INITIALIZER, inject, NgZone } from '@angular/core';
 import { akitaDevtools, DevtoolsOptions } from '@datorama/akita';
+=======
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'
+import { CommonModule } from '@angular/common';
+>>>>>>> 18376ae (changes O_o)
 
 export function provideAkitaDevtools(options: Partial<DevtoolsOptions> = {}) {
   return {
