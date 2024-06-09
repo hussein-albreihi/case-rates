@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "currency-rates": {
+    "case-rates": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/currency-rates",
+            "outputPath": "dist/case-rates",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "currency-rates:build:production"
+              "buildTarget": "case-rates:build:production"
             },
             "development": {
-              "buildTarget": "currency-rates:build:development"
+              "buildTarget": "case-rates:build:development"
             }
           },
           "defaultConfiguration": "development"
